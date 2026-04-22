@@ -7,7 +7,7 @@ from tools import log_reader_tool, exa_search_tool
 
 load_dotenv()
 
-# 🔥 OpenRouter LLM config
+#  OpenRouter LLM config
 llm = LLM(
     model="openai/gpt-4o-mini",  # OpenRouter supported model
     api_key=os.getenv("OPENROUTER_API_KEY"),
@@ -15,7 +15,7 @@ llm = LLM(
 )
 
 # =========================
-# 🔍 Log Analyzer
+# Log Analyzer
 # =========================
 log_analyzer = Agent(
     role="Strict DevOps Log Analyzer",
@@ -28,7 +28,7 @@ log_analyzer = Agent(
 )
 
 # =========================
-# 🔎 Investigator
+#  Investigator
 # =========================
 issue_investigator = Agent(
     role="DevOps Issue Investigator",
@@ -40,7 +40,7 @@ issue_investigator = Agent(
 )
 
 # =========================
-# 🛠 Solution Specialist
+#  Solution Specialist
 # =========================
 solution_specialist = Agent(
     role="DevOps Solution Specialist",
