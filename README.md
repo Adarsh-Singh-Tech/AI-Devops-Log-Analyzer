@@ -10,6 +10,7 @@
 [![EXA Search](https://img.shields.io/badge/EXA-Real--Time_Intel-10B981?style=flat-square)](https://exa.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)]()
+![Version](https://img.shields.io/badge/version-v1.0.0-blue)
 
 <br/>
 
@@ -714,6 +715,19 @@ Please open an issue before submitting a pull request to align on the approach.
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for full terms.
 
 ---
+## 📌 Version History
+
+This project has evolved through multiple engineering phases including:
+
+- Initial log parsing
+- Multi-agent architecture
+- OpenRouter + EXA integration
+- Performance optimization
+- Production-ready pipeline
+
+📄 **Explore full development journey:**  
+---
+👉 [VERSION.md](./VERSION.md)
 
 <div align="center">
 
