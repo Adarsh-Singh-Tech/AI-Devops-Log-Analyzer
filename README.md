@@ -10,7 +10,8 @@
 [![EXA Search](https://img.shields.io/badge/EXA-Real--Time_Intel-10B981?style=flat-square)](https://exa.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)]()
-![Version](https://img.shields.io/badge/version-v1.0.0-blue)
+[![Version](https://img.shields.io/badge/version-v1.0.0-blue)](./CHANGELOG.md)
+![Status](https://img.shields.io/badge/status-production--ready-green)
 
 <br/>
 
@@ -727,7 +728,7 @@ This project has evolved through multiple engineering phases including:
 
 📄 **Explore full development journey:**  
 ---
-👉 [VERSION.md](./VERSION.md)
+👉 [CHANGELOG.md](./CHANGELOG.md)
 
 <div align="center">
 
