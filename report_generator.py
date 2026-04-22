@@ -7,7 +7,7 @@ from docx import Document
 
 
 # =========================
-# 🚨 Severity Detection
+#  Severity Detection
 # =========================
 def detect_severity(result: str):
     text = str(result).lower()
@@ -23,7 +23,7 @@ def detect_severity(result: str):
 
 
 # =========================
-# 🧠 Confidence Score
+#  Confidence Score
 # =========================
 def calculate_confidence(result: str):
     text = str(result).lower()
@@ -36,7 +36,7 @@ def calculate_confidence(result: str):
 
 
 # =========================
-# 📄 Convert to PDF
+#  Convert to PDF
 # =========================
 def convert_to_pdf(md_content: str, filename: str):
     pdf_file = filename.replace(".md", ".pdf")
@@ -53,7 +53,7 @@ def convert_to_pdf(md_content: str, filename: str):
 
 
 # =========================
-# 📄 Convert to DOCX
+#  Convert to DOCX
 # =========================
 def convert_to_docx(md_content: str, filename: str):
     docx_file = filename.replace(".md", ".docx")
@@ -68,31 +68,31 @@ def convert_to_docx(md_content: str, filename: str):
 
 
 # =========================
-# 🎯 Ask user for export
+#  Ask user for export
 # =========================
 def ask_for_export(md_content: str, filename: str):
-    choice = input("\n📄 Do you want this report in PDF/DOCX? (Y/N): ").strip().lower()
+    choice = input("\n Do you want this report in PDF/DOCX? (Y/N): ").strip().lower()
 
     if choice == "y":
         format_choice = input("Choose format (pdf/docx): ").strip().lower()
 
         if format_choice == "pdf":
             pdf_path = convert_to_pdf(md_content, filename)
-            print(f"✅ PDF generated: {pdf_path}")
+            print(f" PDF generated: {pdf_path}")
 
         elif format_choice == "docx":
             docx_path = convert_to_docx(md_content, filename)
-            print(f"✅ DOCX generated: {docx_path}")
+            print(f" DOCX generated: {docx_path}")
 
         else:
-            print("⚠️ Invalid format selected")
+            print(" Invalid format selected")
 
     else:
-        print("👍 Skipping export")
+        print(" Skipping export")
 
 
 # =========================
-# 📊 Generate Report
+#  Generate Report
 # =========================
 def generate_report(result: str, log_path: str):
     os.makedirs("outputs", exist_ok=True)
@@ -104,28 +104,28 @@ def generate_report(result: str, log_path: str):
     confidence = calculate_confidence(result)
 
     with open(filename, "w", encoding="utf-8") as f:
-        f.write("# 🚀 DevOps AI Analysis Report\n\n")
+        f.write("#  DevOps AI Analysis Report\n\n")
 
-        f.write("## 📂 Input Log File\n")
+        f.write("##  Input Log File\n")
         f.write(f"`{log_path}`\n\n")
 
         # Severity
-        f.write("## 🚨 Severity Assessment\n")
+        f.write("##  Severity Assessment\n")
         f.write(f"**Level:** {severity}\n\n")
         f.write(f"**Action Required:** {action}\n\n")
 
         # Analysis
-        f.write("## 📊 Analysis Output\n\n")
+        f.write("##  Analysis Output\n\n")
         f.write(str(result))
 
         # Step-by-step solution
         f.write("\n\n---\n")
-        f.write("## 🛠 Step-by-Step Solution\n\n")
+        f.write("##  Step-by-Step Solution\n\n")
         f.write(str(result))
 
         # Monitoring
         f.write("\n\n---\n")
-        f.write("## 🔮 Monitoring & Prevention\n\n")
+        f.write("##  Monitoring & Prevention\n\n")
         f.write("- Set alerts for recurring issues\n")
         f.write("- Monitor logs continuously\n")
         f.write("- Add retry mechanisms\n")
@@ -141,7 +141,7 @@ def generate_report(result: str, log_path: str):
 
         # Confidence
         f.write("\n\n---\n")
-        f.write(f"### ✅ Confidence Score: {confidence}\n")
+        f.write(f"###  Confidence Score: {confidence}\n")
 
         # Severity Guide
         f.write("\n\n---\n")
