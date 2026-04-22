@@ -17,7 +17,7 @@ from report_generator import generate_report, ask_for_export
 
 
 # =========================
-# 🔧 Crew Setup
+#  Crew Setup
 # =========================
 def create_crew():
     return Crew(
@@ -33,7 +33,7 @@ def create_crew():
 
 
 # =========================
-# 🏃 Pipeline
+#  Pipeline
 # =========================
 def run_pipeline(log_path: str):
     if not os.path.exists(log_path):
@@ -54,7 +54,7 @@ def run_pipeline(log_path: str):
 
 
 # =========================
-# 🚀 Main
+#  Main
 # =========================
 def main():
     print("🚀 DevOps AI Analyzer\n")
@@ -70,18 +70,18 @@ def main():
         print("\n📊 FINAL RESULT:\n")
         print(result)
 
-        # ✅ Generate report
+        #  Generate report
         report_path, report_content = generate_report(result, log_path)
 
         print(f"\n📁 Report generated: {report_path}")
 
-        # ✅ Ask for export
+        #  Ask for export
         ask_for_export(report_content, report_path)
 
         print("\n🎉 Analysis completed!")
 
     except Exception as e:
-        print("\n❌ ERROR OCCURRED\n")
+        print("\n ERROR OCCURRED\n")
         print(str(e))
 
         print("\n🔍 Debug Info:")
