@@ -10,14 +10,14 @@
 > All notable changes to this project are documented in this file.
 > Versioning follows [Semantic Versioning](https://semver.org/) — `MAJOR.MINOR.PATCH`
 >
-> | Symbol | Meaning |
+> | Sr No | Meaning |
 > |--------|---------|
-> |  | New Feature |
-> |  | Improvement |
-> |  | Bug Fix |
-> |  | Technical Change |
-> |  | Breaking Change |
-> |  | Removed |
+> | 1 | New Feature |
+> | 2 | Improvement |
+> | 3 | Bug Fix |
+> | 4 | Technical Change |
+> | 5 | Breaking Change |
+> | 6 | Removed |
 
 ---
 
