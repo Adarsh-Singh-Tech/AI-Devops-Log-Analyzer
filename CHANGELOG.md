@@ -12,12 +12,12 @@
 >
 > | Symbol | Meaning |
 > |--------|---------|
-> | ✨ | New Feature |
-> | ⚡ | Improvement |
-> | 🐛 | Bug Fix |
-> | 🔧 | Technical Change |
-> | ⚠️ | Breaking Change |
-> | 🗑️ | Removed |
+> |  | New Feature |
+> |  | Improvement |
+> |  | Bug Fix |
+> |  | Technical Change |
+> |  | Breaking Change |
+> |  | Removed |
 
 ---
 
@@ -42,7 +42,7 @@
 ## [v1.0.0] — Stable Release
 
 **Release Date:** 2026
-**Status:** ✅ Stable — Production Ready
+**Status:**  Stable — Production Ready
 **Type:** Major Release
 
 ### Overview
@@ -51,7 +51,7 @@ The first stable, production-ready release of the AI DevOps Log Analyzer. This v
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - Complete end-to-end pipeline: **Raw Log → Pre-processing → Analysis → Investigation → Solution**
 - Fully operational three-agent sequential CrewAI workflow:
@@ -65,7 +65,7 @@ The first stable, production-ready release of the AI DevOps Log Analyzer. This v
 - Final `progress_tracker.py` with elapsed time reporting and phase completion display
 - Comprehensive `README.md`, `LICENSE`, and `CHANGELOG.md` documentation
 
-### ⚡ Improvements
+###  Improvements
 
 - Agent backstories fully refined to enforce evidence-based reasoning and eliminate speculation
 - Task descriptions updated with explicit output format contracts for downstream agent compatibility
@@ -75,7 +75,7 @@ The first stable, production-ready release of the AI DevOps Log Analyzer. This v
 - Load order of `load_dotenv()` enforced as absolute first statement in `main.py`
 - Error messaging improved throughout — all failure states return descriptive, actionable messages
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Resolved silent `None` return on environment variable access caused by deferred `load_dotenv()` call
 - Fixed Pydantic v2 `ValidationError` on agent tool registration caused by `@tool` decorator return type inconsistency
@@ -84,7 +84,7 @@ The first stable, production-ready release of the AI DevOps Log Analyzer. This v
 - Resolved mid-pipeline silent failures caused by Pydantic v1/v2 mixed environment
 - Fixed `AuthenticationError` on OpenRouter API calls caused by incorrect environment variable key naming
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - All dependencies pinned to verified compatible versions in `requirements.txt`
 - Project structure finalized and fully documented
@@ -97,7 +97,7 @@ The first stable, production-ready release of the AI DevOps Log Analyzer. This v
 ## [v0.9.0] — Performance & Orchestration
 
 **Release Date:** 2026
-**Status:** 🔶 Release Candidate
+**Status:**  Release Candidate
 **Type:** Minor Release
 
 ### Overview
@@ -106,14 +106,14 @@ Focused entirely on performance, reliability, and agent orchestration quality. N
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - Agent memory scoping introduced — each agent's context is explicitly bounded to prevent cross-contamination between analysis phases
 - Pipeline execution timer added to `progress_tracker.py`
 - Graceful degradation on EXA search failures — agent falls back to training knowledge with explicit uncertainty flagging rather than crashing
 - Output directory auto-creation on first run
 
-### ⚡ Improvements
+###  Improvements
 
 - CrewAI `Process.sequential` execution order explicitly enforced — removed implicit ordering reliance
 - Agent `max_iter` and `max_rpm` parameters tuned to balance thoroughness against execution time
@@ -122,13 +122,13 @@ Focused entirely on performance, reliability, and agent orchestration quality. N
 - Log pre-processing regex patterns expanded to cover additional error signature formats (OOM events, segfaults, timeout cascades)
 - `progress_tracker.py` updated to display per-agent phase status with clear pass/fail indicators
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Resolved occasional task output truncation caused by `max_tokens` ceiling being hit silently
 - Fixed race condition in progress tracker output when agents completed faster than expected
 - Corrected incorrect severity tagging for multi-line exception stack traces in `log_analyzer.py`
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `agents.py` refactored to use a factory function pattern (`create_agents()`) for cleaner instantiation
 - `tasks.py` refactored to accept agent instances as parameters rather than importing them directly — reduces circular import risk
@@ -140,7 +140,7 @@ Focused entirely on performance, reliability, and agent orchestration quality. N
 ## [v0.8.0] — Stability & Hardening
 
 **Release Date:** 2026
-**Status:** 🔶 Beta
+**Status:**  Beta
 **Type:** Minor Release
 
 ### Overview
@@ -149,20 +149,20 @@ A stabilization release dedicated to resolving the dependency conflicts, import 
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - `.env.example` template file introduced with inline comments explaining each variable
 - `requirements.txt` version pinning strategy implemented across the full dependency tree
 - Tool registration refactored from `@tool` decorator pattern to explicit `BaseTool` subclass pattern for Pydantic v2 compatibility
 
-### ⚡ Improvements
+###  Improvements
 
 - Environment variable load order corrected — `load_dotenv()` enforced as pre-import first call in `main.py`
 - OpenRouter API key mapping documented and corrected — `OPENAI_API_KEY` / `OPENAI_API_BASE` correctly mapped for LiteLLM routing layer
 - EXA client import corrected to `from exa_py import Exa` following SDK v1.0.0 class rename
 - `LogReaderTool` rebuilt as `BaseTool` subclass with `args_schema` validation and graceful file error handling
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Fixed `ImportError: cannot import name 'LLM' from 'crewai'` — resolved via explicit `from crewai.llm import LLM` path
 - Fixed `ImportError: cannot import name 'EXA' from 'exa_py'` — resolved by updating to post-rename import syntax
@@ -171,7 +171,7 @@ A stabilization release dedicated to resolving the dependency conflicts, import 
 - Fixed silent `None` values on `os.getenv()` calls caused by deferred `load_dotenv()` execution
 - Resolved Pydantic v1/v2 conflict between `langchain-core 0.1.52` and `crewai 0.30.11`
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 ```
 # requirements.txt — pinned dependency set (v0.8.0)
@@ -187,7 +187,7 @@ langchain-openai==0.1.13
 litellm==1.39.1
 ```
 
-### ⚠️ Breaking Changes
+###  Breaking Changes
 
 - `@tool`-decorated functions in `tools.py` removed and replaced with `BaseTool` subclasses — any external code referencing the old tool interface must be updated
 
@@ -196,7 +196,7 @@ litellm==1.39.1
 ## [v0.7.0] — Custom Tooling & Prompt Engineering
 
 **Release Date:** 2026
-**Status:** 🔶 Beta
+**Status:**  Beta
 **Type:** Minor Release
 
 ### Overview
@@ -205,7 +205,7 @@ Introduced custom tool architecture and made significant investments in prompt e
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - `LogReaderTool` — custom CrewAI-compatible tool for reading log files from disk with error handling
 - `EXASearchTool` — custom wrapper integrating EXA Python SDK into the CrewAI tool interface
@@ -216,20 +216,20 @@ Introduced custom tool architecture and made significant investments in prompt e
 - Confidence scoring field added to Solution Specialist task output contract
 - Escalation flag added to solution output for unresolvable or ambiguous incidents
 
-### ⚡ Improvements
+###  Improvements
 
 - Agent backstories rewritten from generic expert descriptions to precision-scoped personas with explicit behavioral constraints
 - Solution Specialist backstory updated to prohibit general advice and require exact version/flag/path specificity in all recommendations
 - Issue Investigator constrained to return source URLs alongside all findings — prevents uncited claims
 - `log_analyzer.py` regex patterns expanded and categorized by failure domain (database, network, memory, application)
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Fixed Issue Investigator agent generating fabricated documentation references — resolved via source citation requirement in task prompt
 - Fixed Solution Specialist generating environment-agnostic recommendations — resolved via persona backstory constraint engineering
 - Resolved tool not being passed correctly to agent constructor in `agents.py`
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `tools.py` created as a dedicated module — tools extracted from `agents.py`
 - Agent instantiation updated to pass tool instances via the `tools=[...]` parameter
@@ -240,7 +240,7 @@ Introduced custom tool architecture and made significant investments in prompt e
 ## [v0.6.0] — EXA Search Integration
 
 **Release Date:** 2026
-**Status:** 🔶 Alpha
+**Status:**  Alpha
 **Type:** Minor Release
 
 ### Overview
@@ -249,7 +249,7 @@ Extended the Issue Investigator Agent with real-time web intelligence via EXA Se
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - EXA Search API integrated as a CrewAI-compatible tool
 - Issue Investigator Agent updated to perform targeted web searches using extracted error signatures
@@ -257,18 +257,18 @@ Extended the Issue Investigator Agent with real-time web intelligence via EXA Se
 - Source URL tracking — all EXA results include origin URLs for citation and verification
 - `EXA_API_KEY` environment variable added to `.env` configuration
 
-### ⚡ Improvements
+###  Improvements
 
 - Issue Investigator task prompt updated to direct EXA queries toward authoritative, high-signal sources
 - Agent pipeline now grounds analysis in current knowledge — eliminates training data staleness problem for recent issues
 - Solution quality measurably improved for infrastructure errors with known upstream fixes
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Resolved EXA client initialization failure caused by missing API key validation on startup
 - Fixed search query construction passing raw log lines instead of extracted error signatures
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `exa_py` added to `requirements.txt`
 - EXA client instantiation centralized in `tools.py`
@@ -279,7 +279,7 @@ Extended the Issue Investigator Agent with real-time web intelligence via EXA Se
 ## [v0.5.0] — OpenRouter LLM Integration
 
 **Release Date:** 2026
-**Status:** 🔶 Alpha
+**Status:**  Alpha
 **Type:** Minor Release
 
 ### Overview
@@ -288,30 +288,30 @@ Replaced the initial direct OpenAI API integration with OpenRouter as the unifie
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - OpenRouter integrated as the LLM backend via LiteLLM compatibility layer
 - `LLM` class from `crewai.llm` used for explicit agent LLM configuration
 - Model selection externalized to `MODEL_NAME` environment variable — switch models without code changes
 - Support for GPT-4o, Claude 3.5 Sonnet, Mistral, and other OpenRouter-available models
 
-### ⚡ Improvements
+###  Improvements
 
 - LLM configuration centralized in `agents.py` — single point of change for all agents
 - `OPENAI_API_BASE` override configured to route all LiteLLM calls through OpenRouter endpoint
 - Model fallback behavior documented for cases where selected model is unavailable
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Resolved `AuthenticationError` caused by LiteLLM reading `OPENAI_API_KEY` regardless of provider — corrected by mapping OpenRouter key to the expected variable name
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `openai` Python package retained as LiteLLM dependency — not a direct OpenAI API usage
 - `OPENAI_API_KEY` and `OPENAI_API_BASE` documented in `.env.example` with explanatory comments
 - `openrouter` model path format (`openai/gpt-4o`, `anthropic/claude-3.5-sonnet`) adopted throughout
 
-### ⚠️ Breaking Changes
+###  Breaking Changes
 
 - Direct OpenAI `ChatOpenAI` integration removed — all LLM calls now route through CrewAI `LLM` class and LiteLLM
 
@@ -320,7 +320,7 @@ Replaced the initial direct OpenAI API integration with OpenRouter as the unifie
 ## [v0.4.0] — Multi-Agent Workflow Expansion
 
 **Release Date:** 2026
-**Status:** 🔶 Alpha
+**Status:**  Alpha
 **Type:** Minor Release
 
 ### Overview
@@ -329,7 +329,7 @@ Expanded from a single analysis agent to the full three-agent sequential pipelin
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - **Issue Investigator Agent** added — second agent in the pipeline, responsible for root cause research
 - **Solution Specialist Agent** added — third agent in the pipeline, responsible for remediation plan generation
@@ -338,17 +338,17 @@ Expanded from a single analysis agent to the full three-agent sequential pipelin
 - `tasks.py` created as a dedicated module for task definitions
 - Three-task pipeline: `analyze_logs_task` → `investigate_issues_task` → `generate_solutions_task`
 
-### ⚡ Improvements
+###  Improvements
 
 - Log Analyzer Agent refined to produce structured output consumable by downstream agents
 - Agent roles and goals updated to reflect their position in the sequential pipeline
 - Task `expected_output` fields added to enforce output format consistency across agents
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Resolved agent context bleed — agents were inheriting context from unrelated tasks in early Crew configurations
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `agents.py` updated to define and return all three agents
 - `tasks.py` created — task definitions decoupled from agent definitions
@@ -359,7 +359,7 @@ Expanded from a single analysis agent to the full three-agent sequential pipelin
 ## [v0.3.0] — CrewAI Agent Introduction
 
 **Release Date:** 2026
-**Status:** 🔶 Alpha
+**Status:**  Alpha
 **Type:** Minor Release
 
 ### Overview
@@ -368,7 +368,7 @@ The first agent-based version of the system. The procedural log analysis script 
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - CrewAI framework integrated as the agent orchestration layer
 - **Log Analyzer Agent** defined — first agent in the system, responsible for reading and interpreting log data
@@ -376,12 +376,12 @@ The first agent-based version of the system. The procedural log analysis script 
 - `Crew` object instantiated in `main.py` with initial single-agent configuration
 - Basic agent role, goal, and backstory defined for the Log Analyzer
 
-### ⚡ Improvements
+###  Improvements
 
 - Log analysis output significantly more structured compared to the procedural v0.2.0 output — agent produces labeled findings rather than raw text
 - Analysis scope broadened — agent considers temporal patterns and error frequency, not just individual error lines
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `crewai` added to `requirements.txt`
 - `main.py` refactored from procedural script to CrewAI Crew execution pattern
@@ -392,7 +392,7 @@ The first agent-based version of the system. The procedural log analysis script 
 ## [v0.2.0] — Log Parser Enhancement
 
 **Release Date:** 2026
-**Status:** 🔶 Pre-Alpha
+**Status:**  Pre-Alpha
 **Type:** Minor Release
 
 ### Overview
@@ -401,7 +401,7 @@ Expanded the initial proof-of-concept log parser into a structured, reusable mod
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - `log_analyzer.py` module created — dedicated log pre-processing layer
 - Regex-based pattern matching for common error signature categories:
@@ -414,18 +414,18 @@ Expanded the initial proof-of-concept log parser into a structured, reusable mod
 - Temporal pattern detection — identifies recurring error clusters by timestamp proximity
 - Structured Python dictionary output from `log_analyzer.py` for downstream consumption
 
-### ⚡ Improvements
+###  Improvements
 
 - Log parsing decoupled from analysis output — separation of concerns between reading logs and interpreting them
 - Multi-format log support added: syslog, application logs, basic container output
 - Error frequency counting added — surfaces most common error types by occurrence
 
-### 🐛 Bug Fixes
+###  Bug Fixes
 
 - Fixed encoding errors on log files with non-UTF-8 characters — `utf-8` encoding with `errors='ignore'` applied
 - Resolved false positive severity tagging on INFO lines containing the word "error" in log message content
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - `log_analyzer.py` extracted from `main.py` as a standalone importable module
 - Function signatures stabilized for compatibility with the upcoming CrewAI agent layer
@@ -435,7 +435,7 @@ Expanded the initial proof-of-concept log parser into a structured, reusable mod
 ## [v0.1.0] — Initial Release
 
 **Release Date:** 2026
-**Status:** 🔵 Proof of Concept
+**Status:**  Proof of Concept
 **Type:** Initial Release
 
 ### Overview
@@ -444,7 +444,7 @@ The foundational proof-of-concept release. A minimal, script-based log reader an
 
 ---
 
-### ✨ Features Added
+###  Features Added
 
 - Basic Python script to read a log file from disk
 - Hardcoded log string passed directly to an LLM prompt for analysis
@@ -453,7 +453,7 @@ The foundational proof-of-concept release. A minimal, script-based log reader an
 - `python-dotenv` integrated for API key management
 - OpenAI API used as initial LLM backend (replaced in v0.5.0)
 
-### 🔧 Technical Changes
+###  Technical Changes
 
 - Project repository initialized
 - Initial `requirements.txt` created:
