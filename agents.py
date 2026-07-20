@@ -30,13 +30,14 @@ log_analyzer = Agent(
 # =========================
 #  Investigator
 # =========================
-search_provider = os.getenv("SEARCH_PROVIDER", "both").lower()
+search_provider = os.getenv("SEARCH_PROVIDER", "exa").lower()
 if search_provider == "tavily":
     _search_tools = [tavily_search_tool]
-elif search_provider == "exa":
-    _search_tools = [exa_search_tool]
-else:
+elif search_provider == "both":
     _search_tools = [exa_search_tool, tavily_search_tool]
+else:
+    _search_tools = [exa_search_tool]
+_search_tools = [t for t in _search_tools if t is not None]
 
 issue_investigator = Agent(
     role="DevOps Issue Investigator",

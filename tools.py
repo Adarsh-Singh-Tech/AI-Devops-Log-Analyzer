@@ -26,5 +26,8 @@ def log_reader_tool(file_path: str) -> str:
 os.environ["EXA_API_KEY"] = os.getenv("EXA_API_KEY")
 exa_search_tool = EXASearchTool()
 
-os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY", "")
-tavily_search_tool = TavilySearchTool()
+if os.getenv("TAVILY_API_KEY"):
+    os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
+    tavily_search_tool = TavilySearchTool()
+else:
+    tavily_search_tool = None
