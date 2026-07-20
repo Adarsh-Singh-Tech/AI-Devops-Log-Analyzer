@@ -480,6 +480,7 @@ litellm==1.39.1
 - Python 3.10 or higher
 - [OpenRouter](https://openrouter.ai) account and API key
 - [EXA Search](https://exa.ai) account and API key
+- (Optional) [Tavily](https://tavily.com) account and API key — for alternative/parallel search
 
 ### 1. Clone the Repository
 
@@ -532,6 +533,17 @@ MODEL_NAME=openai/gpt-4o
 # EXA Search
 # ────────────────────────────────────────────────────────────
 EXA_API_KEY=your-exa-api-key-here
+
+# ────────────────────────────────────────────────────────────
+# Tavily Search (optional — alternative search provider)
+# ────────────────────────────────────────────────────────────
+TAVILY_API_KEY=your-tavily-api-key-here
+
+# ────────────────────────────────────────────────────────────
+# Search Provider Selection
+# Options: exa (default), tavily, both
+# ────────────────────────────────────────────────────────────
+SEARCH_PROVIDER=exa
 ```
 
 ### 5. Add Your Log File
